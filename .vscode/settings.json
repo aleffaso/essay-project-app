@@ -1,0 +1,4 @@
+{
+  "editor.codeActionsOnSave": ["source.organizeImports"],
+  "cSpell.words": ["antd", "staatliches", "tailwindcss"]
+}
