@@ -1,7 +1,8 @@
 export const ROUTES = {
   PUBLIC: {
     HOME: '/',
-    LOGIN: '/login'
+    LOGIN: '/login',
+    SIGN_UP: '/signup'
   },
   PRIVATE: {
     PROFILE: '/profile',

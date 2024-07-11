@@ -7,5 +7,8 @@ export const KEYS = {
       DATA: process.env.VITE_API_STORAGE_USER_DATA || 'USER_DATA',
       TOKEN: process.env.VITE_API_STORAGE_USER_TOKEN || 'USER_TOKEN'
     }
+  },
+  PERMISSIONS: {
+    CUSTOMER: process.env.VITE_CUSTOMER_PERMISSION || ''
   }
 };
