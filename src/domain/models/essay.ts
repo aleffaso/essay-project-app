@@ -8,8 +8,8 @@ export type Essay = {
   id: string;
   tag: string;
   status: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type User = SignUpResponseModel['user'] & {

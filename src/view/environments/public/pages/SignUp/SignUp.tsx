@@ -2,7 +2,7 @@ import { ROUTES } from '@constants/routes';
 import { LocationState, useLocationState } from '@hooks/useLocationState';
 import { userAuth } from '@utils/user-auth';
 import { Alert, Button, Form, Input } from 'antd';
-import { Link, Navigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useSignUpForm } from './useSignUpForm';
 import { useAddNewSignUp } from '@queries/signUp/useAddNewSignUp';
 import { SignUpModel } from '@domain/models/signUp';
@@ -30,7 +30,7 @@ export const SignUpPage = () => {
     return <Navigate to={ROUTES.PRIVATE.PROFILE} state={{ from: location }} replace />;
   }
   return (
-    <section className="w-screen h-screen flex justify-center items-center">
+    <section className="w-screen h-screen bg-dark-455 flex justify-center items-center">
       <div className="w-80">
         {isError ? <Alert message={errorMessage} type="error" /> : null}
         {isSuccess ? <Alert message="Cadastro realizado com sucesso!" type="success" /> : null}
@@ -38,26 +38,43 @@ export const SignUpPage = () => {
           form={form}
           onFinish={handleSignUp}
           layout="vertical"
-          className="w-full bg-white rounded-sm">
-          <Form.Item label="Nome" name="firstName" rules={[rule]}>
-            <Input placeholder="Nome" type="text" />
+          className="w-full bg-dark-455 rounded-sm">
+          <Form.Item name="firstName" rules={[rule]}>
+            <Input
+              className="text-white placeholder:text-white border-white"
+              placeholder="Nome"
+              type="text"
+            />
           </Form.Item>
 
-          <Form.Item label="Sobrenome" name="lastName" rules={[rule]}>
-            <Input placeholder="Sobrenome" type="text" />
+          <Form.Item name="lastName" rules={[rule]}>
+            <Input
+              className="text-white placeholder:text-white border-white"
+              placeholder="Sobrenome"
+              type="text"
+            />
           </Form.Item>
 
-          <Form.Item label="E-mail" name="email" rules={[rule]}>
-            <Input placeholder="email@email.com" type="email" />
+          <Form.Item name="email" rules={[rule]}>
+            <Input
+              className="text-white placeholder:text-white border-white"
+              placeholder="email@email.com"
+              type="email"
+            />
           </Form.Item>
 
-          <Form.Item label="Senha" name="password" rules={[rule]}>
-            <Input.Password />
+          <Form.Item name="password" rules={[rule]}>
+            <Input.Password
+              className="text-white placeholder:text-white border-white"
+              placeholder="password"
+            />
           </Form.Item>
-          <div className="w-full flex gap-3 justify-center">
-            <Link to={ROUTES.PUBLIC.LOGIN}>Entrar</Link>
+          <div className="w-full flex flex-col gap-2 justify-center">
             <Button type="primary" htmlType="submit">
               {isPending ? 'Cadastrando...' : 'Cadastrar'}
+            </Button>
+            <Button type="default" href={ROUTES.PUBLIC.LOGIN}>
+              Já possuo uma conta
             </Button>
           </div>
         </Form>

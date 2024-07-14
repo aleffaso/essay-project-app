@@ -1,26 +1,15 @@
 import TRIANGLE from '@assets/svg/triangle.svg';
-import { useUpdateParams } from '@hooks/useUpdateParams';
-import { Button } from 'antd';
-import { useSearchParams } from 'react-router-dom';
 
 export const HeroSection = () => {
-  const [searchParams] = useSearchParams();
-  const isNavBarOpen = Boolean(searchParams.get('navBarOpen'));
-  const updateParams = useUpdateParams();
-
-  const toggleNavBarOpen = () =>
-    isNavBarOpen ? updateParams(['navBarOpen', undefined]) : updateParams(['navBarOpen', 'true']);
-
   return (
-    <section className="flex items-center justify-center py-6 w-full">
-      <div className="w-fit flex justify-center items-center gap-3 py-12 max-md:flex-col max-md:gap-12 flex-col">
-        <h1 className="uppercase text-8xl max-md:text-5xl font-['Staatliches']">Bem vindo à</h1>
-        <h2 className="text-4xl max-md:text-xl">Redação sem trauma!</h2>
+    <section className="w-full flex items-center justify-center py-24">
+      <div className="w-full flex items-center justify-center gap-5 max-md:flex-col">
+        <div className="w-fit flex flex-col justify-center items-center gap-3 py-12">
+          <h1 className="uppercase text-5xl font-['Staatliches'] max-md:text-5xl">Bem vindo à</h1>
+          <h2 className="text-4xl max-md:text-4xl">Redação sem trauma!</h2>
+        </div>
+        <img src={TRIANGLE} className="w-48" />
       </div>
-      <img src={TRIANGLE} className="w-80" />
-      <Button type="primary" onClick={toggleNavBarOpen}>
-        {isNavBarOpen ? 'Ocultar' : 'Mostrar'} Navbar
-      </Button>
     </section>
   );
 };

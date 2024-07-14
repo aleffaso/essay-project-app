@@ -5,7 +5,7 @@ export const SignUpSection = () => (
   <section className="w-full bg-black">
     <div className="w-full flex flex-col items-center py-[100px] max-md:gap-5 max-md:py-10 max-md:px-5">
       <div className="flex flex-col items-center gap-10 max-md:gap-5">
-        <span className="text-center font-normal text-white text-5xl max-md:text-4xl font-staatliches">
+        <span className="text-center font-normal text-white text-4xl max-md:text-4xl font-staatliches">
           MANDE AGORA SUA REDAÇÃO
         </span>
         <span className="text-center font-normal text-white w-[550px] text-2xl leading-[1.8] max-md:w-[280px] max-md:text-sm max-md:leading-[1.6]">

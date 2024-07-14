@@ -8,7 +8,7 @@ export const ItemTitleShape = ({
 }: HTMLAttributes<HTMLHeadingElement>) => (
   <h1
     className={cn(
-      'ml-[-15px] text-[42px]  max-md:ml-[-10px] max-md:text-[26px] font-staatliches relative z-[2]',
+      'ml-[-15px] text-[36px]  max-md:ml-[-10px] max-md:text-[26px] font-staatliches relative z-[2]',
       className
     )}
     {...props}>

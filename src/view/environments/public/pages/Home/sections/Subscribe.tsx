@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 export const SubscribeSection = () => {
   return (
     <section className="w-full bg-white flex flex-col gap-10 items-center py-24 max-md:py-10 max-md:px-5">
-      <h1 className="w-[700px] text-center font-normal text-5xl text-black max-md:w-[400px] max-md:text-2xl font-staatliches">
+      <h1 className="w-[600px] text-center font-normal text-4xl text-black max-md:w-[400px] max-md:text-2xl font-staatliches">
         Saiba o que mais está sendo cobrado em provas de vestibular e concurso{' '}
       </h1>
       <Form layout="vertical" className="w-[380px]">

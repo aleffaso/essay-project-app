@@ -4,7 +4,7 @@ import { LoginModel } from '@domain/models/authenticate/login';
 import { LocationState, useLocationState } from '@hooks/useLocationState';
 import { userAuth } from '@utils/user-auth';
 import { Alert, Button, Form, Input } from 'antd';
-import { Link, Navigate, useSearchParams } from 'react-router-dom';
+import { Navigate, useSearchParams } from 'react-router-dom';
 import { useLoginForm } from './useLoginForm';
 
 export const LoginPage = () => {
@@ -25,7 +25,7 @@ export const LoginPage = () => {
     return <Navigate to={ROUTES.PRIVATE.PROFILE} state={{ from: location }} replace />;
   }
   return (
-    <section className="w-screen h-screen flex justify-center items-center">
+    <section className="w-screen h-screen bg-dark-455 flex justify-center items-center max-md:h-[540px]">
       <div className="w-80">
         {isError ? <Alert message={errorMessage} type="error" /> : null}
         {isSignUpSuccess ? <Alert message="Usuário cadastrado com sucesso" type="success" /> : null}
@@ -33,18 +33,27 @@ export const LoginPage = () => {
           form={form}
           onFinish={handleLogin}
           layout="vertical"
-          className="w-full bg-white rounded-sm">
-          <Form.Item label="E-mail" name="email" rules={[rule]}>
-            <Input placeholder="email@email.com" type="email" />
+          className="w-full bg-dark-455 rounded-sm">
+          <Form.Item name="email" rules={[rule]}>
+            <Input
+              className="text-white placeholder:text-white border-white"
+              placeholder="seuemail@email.com"
+              type="email"
+            />
           </Form.Item>
 
-          <Form.Item label="Senha" name="password" rules={[rule]}>
-            <Input.Password />
+          <Form.Item name="password" rules={[rule]}>
+            <Input.Password
+              className="text-white placeholder:text-white border-white"
+              placeholder="senha"
+            />
           </Form.Item>
-          <div className="w-full flex gap-3 justify-center">
-            <Link to={ROUTES.PUBLIC.SIGN_UP}>Criar conta</Link>
+          <div className="w-full flex flex-col gap-3 justify-center">
             <Button type="primary" htmlType="submit">
               {isPending ? 'Entrando...' : 'Entrar'}
+            </Button>
+            <Button type="default" href={ROUTES.PUBLIC.SIGN_UP}>
+              Criar conta
             </Button>
           </div>
         </Form>

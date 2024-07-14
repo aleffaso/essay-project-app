@@ -1,7 +1,7 @@
 import { ItemShape } from './Item';
 
 export const Shapes = () => (
-  <div className="w-full flex flex-row justify-around max:md:flex-col max:md:items-center">
+  <div className="w-4/5 flex flex-row justify-around max-md:gap-10 ">
     <ItemShape.Root>
       <ItemShape.Title>1000+</ItemShape.Title>
       <ItemShape.Subtitle>Redações corrigidas</ItemShape.Subtitle>
