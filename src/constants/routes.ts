@@ -6,6 +6,7 @@ export const ROUTES = {
   },
   PRIVATE: {
     PROFILE: '/profile',
-    NOT_FOUND: '/not-found'
+    NOT_FOUND: '/not-found',
+    ESSAY_ID: '/essay/:id'
   }
 };

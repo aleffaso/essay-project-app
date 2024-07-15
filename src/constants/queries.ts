@@ -1,5 +1,8 @@
 export const QUERIES = {
   USER: {
     USER_DATA_ESSAYS: '@USER_USER_DATA_ESSAYS'
+  },
+  ESSAY: {
+    ESSAY_DATA_ESSAY: '@ESSAY_ESSAY_DATA_ESSAY'
   }
 };
