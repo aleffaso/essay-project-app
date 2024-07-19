@@ -10,7 +10,15 @@ export type Essay = {
   status: string;
   createdAt: string;
   updatedAt: string;
-  updates: EssayUpdates;
+  updatesCount: number;
+  updates: EssayUpdate[];
+  author: {
+    id: string;
+    firstName: string;
+    lastName: string;
+    email: string;
+    isActive: boolean;
+  };
 };
 
 export type User = SignUpResponseModel['user'] & {
@@ -21,20 +29,16 @@ export type UserDataAndEssaysModel = {
   user: User;
 };
 
-export type EssayUpdates = {
-  updatesCount: number;
-  updates: {
-    id: string;
-    annotations: string;
-    corrections: string;
-    comments: string;
-    grade: number | null;
-    createdAt: string;
-    updatedAt: string;
-  }[];
+export type EssayUpdate = {
+  id: string;
+  annotations: string;
+  corrections: string;
+  comments: string;
+  grade: number | null;
+  createdAt: string;
+  updatedAt: string;
 };
 
 export type EssayDataAndModel = {
   essay: Essay;
-  updates: EssayUpdates;
 };

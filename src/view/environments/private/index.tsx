@@ -7,7 +7,7 @@ import { EssayPage } from './pages/Essay/[id]';
 const PrivateEnvironment = (
   <Route element={<PrivateLayout />}>
     <Route path={ROUTES.PRIVATE.PROFILE} element={<ProfilePage />} />
-    <Route path={ROUTES.PRIVATE.ESSAY_ID} element={<EssayPage />} />
+    <Route path={ROUTES.PRIVATE.ESSAY_BY_ID + ':id'} element={<EssayPage />} />
   </Route>
 );
 
