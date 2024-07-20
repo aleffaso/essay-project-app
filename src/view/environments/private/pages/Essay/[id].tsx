@@ -1,5 +1,7 @@
 import { useLoadEssayById } from '@queries/essay/useLoadEssayById';
+import { utmToStandard } from '@utils/formatDate';
 import { useParams } from 'react-router-dom';
+import { Tags } from '../../layout/Sidebar/components/Tags/Tags';
 
 export const EssayPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -7,41 +9,52 @@ export const EssayPage = () => {
   const { data, isLoading } = useLoadEssayById(id as string);
 
   return (
-    <div className="w-full h-screen">
+    <div className="w-full h-screen flex flex-col justify-start items-center">
       {isLoading ? <p>Carregando...</p> : null}
-      {!isLoading && (
-        <div className="flex flex-col items-center">
-          <h1 className="text-xl font-bold max-md:text-sm text-center py-4 px-2">
-            {data?.essay.title}
-          </h1>
-          <hr className="bg-black w-full" />
-          <div className="flex flex-col w-full items-center py-2 px-2 gap-2">
-            {!isLoading &&
-              data?.essay.updates.map((update, index) => (
-                <div
-                  key={update.id}
-                  className="flex flex-col h-full w-full max-h-40 py-2 px-4 border rounded-lg shadow-sm">
-                  <div className="flex items-center mb-2">
-                    <div className="w-full">
-                      <p className="text-sm max-md:text-xs font-semibold text-dark-600">
-                        Atualização - {index + 1}
-                      </p>
-                      <hr className="bg-black w-full" />
-                      <div className="py-2">
-                        <p className="text-xs text-gray-500 ">{update.comments}</p>
-                        <p className="text-xs text-gray-500 ">{update.annotations}</p>
-                        <p className="text-xs text-gray-500 ">{update.corrections}</p>
-                        <p className="text-xs text-gray-500 ">{update.grade}</p>
-                        <p className="text-xs text-gray-500 ">{update.createdAt}</p>
-                        <p className="text-xs text-gray-500 ">{update.updatedAt}</p>
+      <div className="w-full flex flex-col justify-center items-center gap-2 p-4">
+        <h1 className="text-xl text-center">{data?.essay.title}</h1>
+        {data && <Tags tagsType={data?.essay.tag} />}
+      </div>
+      <hr className="bg-black w-full" />
+      <h2 className="text-base py-4">Histórico de Atualizações</h2>
+      <div className="flex flex-col w-full gap-4 items-center">
+        <div className="flex flex-col w-full py-2 px-2 gap-4">
+          {data?.essay.updates
+            .map((updates, index) => (
+              <div key={index} className="flex flex-col border rounded-lg">
+                <div className="flex items-center">
+                  <div className="w-full">
+                    <div className="w-full p-4">
+                      <div className="flex gap-1">
+                        <p className="text-xs font-bold">Nota:</p>
+                        <p className="text-xs"> {updates.grade}</p>
                       </div>
+                      <div className="flex gap-1">
+                        <p className="text-xs font-bold">Anotações:</p>
+                        <p className="text-xs"> {updates.annotations}</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <p className="text-xs font-bold">Correções:</p>
+                        <p className="text-xs"> {updates.corrections}</p>
+                      </div>
+                      <div className="flex gap-1">
+                        <p className="text-xs font-bold">Comentários:</p>
+                        <p className="text-xs"> {updates.comments}</p>
+                      </div>
+                    </div>
+                    <hr className="w-full bg-black" />
+                    <div className="flex justify-end p-2 max-md:justify-center">
+                      <p className="text-xs max-md:text-[8px] text-gray-500">
+                        Atualização nº: {index + 1} realizada dia {utmToStandard(updates.createdAt)}
+                      </p>
                     </div>
                   </div>
                 </div>
-              ))}
-          </div>
+              </div>
+            ))
+            .reverse()}
         </div>
-      )}
+      </div>
     </div>
   );
 };
