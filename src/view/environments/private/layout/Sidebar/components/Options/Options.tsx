@@ -1,15 +1,22 @@
 import { cn } from '@utils/tailwind/cn';
-import { OptionList } from './mapped';
+
+export interface Options {
+  icon: React.ReactNode;
+  label: React.ReactNode;
+  path: string;
+  disabled?: boolean;
+}
 
 interface OptionsProps {
   className?: string;
   essayId: string;
+  mapped: Options[];
 }
 
-export const Options = ({ className, essayId }: OptionsProps) => {
+export const Options = ({ className, essayId, mapped }: OptionsProps) => {
   return (
     <div className={className}>
-      {OptionList.map((item, index) => (
+      {mapped.map((item, index) => (
         <button
           disabled={item.disabled}
           className={cn({

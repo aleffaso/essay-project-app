@@ -1,9 +1,10 @@
 import { useLoadEssayByUserId } from '@queries/essay/useLoadEssayByUserId';
-import { Options } from './components/Options/Options';
+import { Options } from '../../layout/Sidebar/components/Options/Options';
 import { Badges } from '../../layout/Sidebar/components/Badges/Badges';
 import { Tags } from '../../layout/Sidebar/components/Tags/Tags';
 import { Link } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
+import { OptionList } from './components/mapped';
 
 export const ProfilePage = () => {
   const { data, isLoading } = useLoadEssayByUserId();
@@ -32,7 +33,7 @@ export const ProfilePage = () => {
 
               <div className="flex items-center justify-between">
                 <Badges className="flex gap-1 " statusType={essay.status} />
-                <Options className="flex gap-1" essayId={essay.id} />
+                <Options className="flex gap-1" essayId={essay.id} mapped={OptionList} />
               </div>
             </div>
           ))}
