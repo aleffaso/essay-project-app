@@ -1,16 +1,23 @@
 import { useLoadEssayByUserId } from '@queries/essay/useLoadEssayByUserId';
 import { Options } from '../../layout/Sidebar/components/Options/Options';
-import { Badges } from '../../layout/Sidebar/components/Badges/Badges';
-import { Tags } from '../../layout/Sidebar/components/Tags/Tags';
-import { Link } from 'react-router-dom';
+import { Badges } from '../../layout/components/Essay/Badges/Badges';
+import { Tags } from '../../layout/components/Essay/Tags/Tags';
+import { Link, useSearchParams } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
-import { OptionList } from './components/mapped';
+import { OptionList } from './components/Options/mapped';
+import { ModalAlert } from './components/ModalAlert/ModalAlert';
 
 export const ProfilePage = () => {
   const { data, isLoading } = useLoadEssayByUserId();
 
+  const [searchParams] = useSearchParams();
+  const isEssayCreated = searchParams.get('newEssay') === 'true';
+
   return (
-    <div className="w-full h-screen flex flex-col justify-start items-center">
+    <div className="w-full h-full flex flex-col justify-start items-center max-md:h-screen">
+      {isEssayCreated ? (
+        <ModalAlert className="mt-6" alertType="success" text="Redação criada com sucesso" />
+      ) : null}
       <h1 className="text-xl py-4">Minhas redações</h1>
       <hr className="bg-black w-full" />
       <div className="flex flex-col w-full gap-4 py-2 px-2 items-center">
@@ -32,7 +39,7 @@ export const ProfilePage = () => {
               </div>
 
               <div className="flex items-center justify-between">
-                <Badges className="flex gap-1 " statusType={essay.status} />
+                <Badges className="flex gap-1" statusType={essay.status} />
                 <Options className="flex gap-1" essayId={essay.id} mapped={OptionList} />
               </div>
             </div>

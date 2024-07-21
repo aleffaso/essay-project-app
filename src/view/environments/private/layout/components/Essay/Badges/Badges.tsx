@@ -14,3 +14,11 @@ export const Badges = ({ className, statusType }: BadgesProps) => {
     </div>
   );
 };
+
+export const DropDownBadgeStatus = () => {
+  return Object.keys(BadgesList).map((key) => (
+    <option key={key} value={key}>
+      {BadgesList[key].text}
+    </option>
+  ));
+};

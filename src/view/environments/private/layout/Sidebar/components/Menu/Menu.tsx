@@ -41,7 +41,7 @@ export const Menu = () => {
             ) : (
               <ArrowCircleLeft size={iconSize} className="ml-1" />
             )}
-            {!collapsed && <span className="ml-2">Menu</span>}
+            {!collapsed && <span className="ml-2">Esconder</span>}
           </button>
         </li>
       </ul>

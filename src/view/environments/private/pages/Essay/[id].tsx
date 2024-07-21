@@ -1,7 +1,7 @@
 import { useLoadEssayById } from '@queries/essay/useLoadEssayById';
 import { utmToStandard } from '@utils/formatDate';
 import { useParams } from 'react-router-dom';
-import { Tags } from '../../layout/Sidebar/components/Tags/Tags';
+import { Tags } from '../../layout/components/Essay/Tags/Tags';
 import { Options } from '../../layout/Sidebar/components/Options/Options';
 import { OptionList } from './components/mapped';
 import { FileModal } from './components/Modal/Modal';
@@ -33,19 +33,25 @@ export const EssayPage = () => {
                       <div>
                         <div className="flex gap-1">
                           <p className="text-xs font-bold">Nota:</p>
-                          <p className="text-xs"> {updates.grade}</p>
+                          <p className="text-xs"> {updates.grade ?? 'Pendente'}</p>
                         </div>
                         <div className="flex gap-1">
                           <p className="text-xs font-bold">Anotações:</p>
-                          <p className="text-xs"> {updates.annotations}</p>
+                          <p className="text-xs">
+                            {updates.annotations === 'PENDING' ? 'Pendente' : updates.annotations}
+                          </p>
                         </div>
                         <div className="flex gap-1">
                           <p className="text-xs font-bold">Correções:</p>
-                          <p className="text-xs"> {updates.corrections}</p>
+                          <p className="text-xs">
+                            {updates.corrections === 'PENDING' ? 'Pendente' : updates.corrections}
+                          </p>
                         </div>
                         <div className="flex gap-1">
                           <p className="text-xs font-bold">Comentários:</p>
-                          <p className="text-xs"> {updates.comments}</p>
+                          <p className="text-xs">
+                            {updates.comments === 'PENDING' ? 'Pendente' : updates.comments}
+                          </p>
                         </div>
                       </div>
                       <div>

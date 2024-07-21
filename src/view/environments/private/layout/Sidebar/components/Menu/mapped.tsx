@@ -30,8 +30,8 @@ export const MenuList: MenuItem[] = [
   {
     label: 'Nova Redação',
     icon: <FilePlus size={iconSize} />,
-    path: ROUTES.PRIVATE.PROFILE,
-    disabled: true
+    path: ROUTES.PRIVATE.NEW_ESSAY,
+    disabled: false
   },
   {
     label: 'Evolução',

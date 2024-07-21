@@ -18,3 +18,11 @@ export const Tags = ({ className, tagsType }: TagsProps) => {
     </div>
   );
 };
+
+export const DropDownField = () => {
+  return Object.keys(TagsList).map((key) => (
+    <option key={key} value={key}>
+      {TagsList[key].label}
+    </option>
+  ));
+};

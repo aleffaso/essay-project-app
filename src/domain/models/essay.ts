@@ -1,3 +1,4 @@
+import { EssayFormModel } from '@view/environments/private/pages/NewEssay/useNewEssayForm';
 import { SignUpResponseModel } from './signUp';
 
 export type Essay = {
@@ -42,3 +43,5 @@ export type EssayUpdate = {
 export type EssayDataAndModel = {
   essay: Essay;
 };
+
+export type NewEssayModel = EssayFormModel;
