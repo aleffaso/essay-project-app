@@ -5,10 +5,11 @@ export const ROUTES = {
     SIGN_UP: '/signup'
   },
   PRIVATE: {
-    PROFILE: '/profile',
+    PANEL: '/panel',
     NOT_FOUND: '/not-found',
     ESSAY_BY_ID: '/essay/',
     NEW_ESSAY: '/new-essay',
+    UPDATE_ESSAY_BY_ID: '/update-essay/',
     ACCOUNT: '/my-account'
   }
 };

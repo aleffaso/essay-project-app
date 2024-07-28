@@ -1,5 +1,5 @@
 import { ROUTES } from '@constants/routes';
-import { ChatCircleDots, FileArrowDown } from '@phosphor-icons/react';
+import { ChatCircleDots, FileArrowDown, NotePencil } from '@phosphor-icons/react';
 
 export interface Options {
   icon: React.ReactNode;

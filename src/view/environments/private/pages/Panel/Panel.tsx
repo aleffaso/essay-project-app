@@ -7,17 +7,25 @@ import { ROUTES } from '@constants/routes';
 import { OptionList } from './components/Options/mapped';
 import { ModalAlert } from './components/ModalAlert/ModalAlert';
 
-export const ProfilePage = () => {
+export const PanelPage = () => {
   const { data, isLoading } = useLoadEssayByUserId();
 
   const [searchParams] = useSearchParams();
   const isEssayCreated = searchParams.get('newEssay') === 'true';
+  const isEssayUpdated = searchParams.get('essayUpdated') === 'true';
 
   return (
     <div className="w-full h-full flex flex-col justify-start items-center max-md:h-screen">
       {isEssayCreated ? (
         <ModalAlert className="mt-6" alertType="success" text="Redação criada com sucesso" />
-      ) : null}
+      ) : (
+        <ModalAlert className="mt-6" alertType="error" text="Erro ao criar redação" />
+      )}
+      {isEssayUpdated ? (
+        <ModalAlert className="mt-6" alertType="success" text="Redação atualizada com sucesso" />
+      ) : (
+        <ModalAlert className="mt-6" alertType="error" text="Erro ao atualizar redação" />
+      )}
       <h1 className="text-xl py-4">Minhas redações</h1>
       <hr className="bg-black w-full" />
       <div className="flex flex-col w-full gap-4 py-2 px-2 items-center">

@@ -24,7 +24,7 @@ export const MenuList: MenuItem[] = [
   {
     label: 'Painel',
     icon: <Newspaper size={iconSize} />,
-    path: ROUTES.PRIVATE.PROFILE,
+    path: ROUTES.PRIVATE.PANEL,
     disabled: false
   },
   {
@@ -36,13 +36,13 @@ export const MenuList: MenuItem[] = [
   {
     label: 'Evolução',
     icon: <ChartLine size={iconSize} />,
-    path: ROUTES.PRIVATE.PROFILE,
+    path: ROUTES.PRIVATE.PANEL,
     disabled: true
   },
   {
     label: 'Carteira',
     icon: <Wallet size={iconSize} />,
-    path: ROUTES.PRIVATE.PROFILE,
+    path: ROUTES.PRIVATE.PANEL,
     disabled: true
   },
   {

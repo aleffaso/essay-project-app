@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Tags } from '../../layout/components/Essay/Tags/Tags';
 import { Options } from '../../layout/Sidebar/components/Options/Options';
 import { OptionList } from './components/mapped';
-import { FileModal } from './components/Modal/Modal';
+import { FileModal } from './components/FileModal/FileModal';
 
 export const EssayPage = () => {
   const { id } = useParams<{ id: string }>();
@@ -25,6 +25,7 @@ export const EssayPage = () => {
       <div className="flex flex-col w-full gap-4 items-center">
         <div className="flex flex-col w-full px-2 gap-4">
           {data?.essay.updates
+            .slice(1)
             .map((updates, index) => (
               <div key={index} className="flex flex-col border rounded-lg">
                 <div className="flex items-center">
@@ -66,7 +67,8 @@ export const EssayPage = () => {
                         mapped={OptionList}
                       />
                       <p className="text-xs max-md:text-[8px] text-gray-500">
-                        Atualização nº: {index + 1} realizada dia {utmToStandard(updates.createdAt)}
+                        Atualização nº: {index + 1} - {utmToStandard(updates.createdAt)}. Prof.{' '}
+                        {updates.user.firstName}
                       </p>
                     </div>
                   </div>

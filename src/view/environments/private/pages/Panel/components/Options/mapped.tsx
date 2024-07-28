@@ -27,8 +27,8 @@ export const OptionList: Options[] = [
   {
     icon: <NotePencil size={iconSize} className={iconClassName} />,
     label: 'Editar',
-    path: ROUTES.PRIVATE.ESSAY_BY_ID,
-    disabled: true
+    path: ROUTES.PRIVATE.UPDATE_ESSAY_BY_ID,
+    disabled: false
   },
   {
     icon: <Eye size={iconSize} className={iconClassName} />,

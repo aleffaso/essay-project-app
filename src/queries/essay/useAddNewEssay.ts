@@ -8,7 +8,7 @@ export const useAddNewEssay = () => {
   const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: async (data: NewEssayModel) => await addNewEssay(data),
-    onSuccess: () => navigate(ROUTES.PRIVATE.PROFILE + '?newEssay=true'),
+    onSuccess: () => navigate(ROUTES.PRIVATE.PANEL + '?newEssay=true'),
     onError: () => console.log('error ao tentar adicionar nova redação')
   });
   const newEssayReq = async (data: NewEssayModel) => mutation.mutateAsync(data);

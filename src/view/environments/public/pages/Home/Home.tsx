@@ -1,3 +1,4 @@
+import { Footer } from '../../layout/Footer/Footer';
 import { AboutSection } from './sections/About';
 import { HeroSection } from './sections/Hero';
 import { QuestionsSection } from './sections/Questions';
@@ -14,6 +15,7 @@ export const HomePage = () => {
       <TeamSection />
       <QuestionsSection />
       <SubscribeSection />
+      <Footer />
     </div>
   );
 };

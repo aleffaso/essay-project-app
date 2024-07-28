@@ -38,6 +38,11 @@ export type EssayUpdate = {
   grade: number | null;
   createdAt: string;
   updatedAt: string;
+  user: {
+    id: string;
+    firstName: string;
+    lastName: string;
+  };
 };
 
 export type EssayDataAndModel = {
@@ -45,3 +50,5 @@ export type EssayDataAndModel = {
 };
 
 export type NewEssayModel = EssayFormModel;
+
+export type UpdateEssayModel = EssayFormModel;
