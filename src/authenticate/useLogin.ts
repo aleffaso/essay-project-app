@@ -8,7 +8,7 @@ export const useLogin = () => {
   const navigate = useNavigate();
   const mutation = useMutation({
     mutationFn: async (data: LoginModel) => await login(data),
-    onSuccess: () => navigate(ROUTES.PRIVATE.PROFILE),
+    onSuccess: () => navigate(ROUTES.PRIVATE.PANEL),
     onError: () => console.log('error ao tentar autenticar')
   });
   const loginReq = async (data: LoginModel) => mutation.mutateAsync(data);

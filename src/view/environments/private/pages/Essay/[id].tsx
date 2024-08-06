@@ -14,10 +14,10 @@ export const EssayPage = () => {
     'https://storage.estuda.com.br/redacao/0_13851d3258e53ac4c715f2640f7e17d2_redacao_471741_59d2a261869c89b8a49d1d3c3055720f.jpg';
 
   return (
-    <div className="w-full h-full p-2 flex flex-col justify-start items-center max-md:h-screen">
+    <div className="w-full h-screen p-2 flex flex-col justify-start items-center">
       {isLoading ? <p>Carregando...</p> : null}
       <div className="w-full flex flex-col justify-center items-center gap-2 p-4">
-        <h1 className="text-xl text-center">{data?.essay.title}</h1>
+        <h1 className="text-xl font-bold text-center">{data?.essay.title}</h1>
         {data && <Tags tagsType={data?.essay.tag} />}
       </div>
       <hr className="bg-black w-full" />

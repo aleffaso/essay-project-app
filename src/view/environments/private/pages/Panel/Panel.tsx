@@ -5,7 +5,7 @@ import { Tags } from '../../layout/components/Essay/Tags/Tags';
 import { Link, useSearchParams } from 'react-router-dom';
 import { ROUTES } from '@constants/routes';
 import { OptionList } from './components/Options/mapped';
-import { ModalAlert } from './components/ModalAlert/ModalAlert';
+import { ModalAlert } from '../../layout/components/ModalAlert/ModalAlert';
 
 export const PanelPage = () => {
   const { data, isLoading } = useLoadEssayByUserId();
@@ -15,18 +15,36 @@ export const PanelPage = () => {
   const isEssayUpdated = searchParams.get('essayUpdated') === 'true';
 
   return (
-    <div className="w-full h-full flex flex-col justify-start items-center max-md:h-screen">
-      {isEssayCreated ? (
-        <ModalAlert className="mt-6" alertType="success" text="Redação criada com sucesso" />
-      ) : (
-        <ModalAlert className="mt-6" alertType="error" text="Erro ao criar redação" />
+    <div className="w-full flex flex-col justify-start items-center">
+      {searchParams.size > 0 && (
+        <>
+          <ModalAlert
+            className="mt-6"
+            alertType="success"
+            text="Redação criada com sucesso"
+            condition={isEssayCreated !== undefined && isEssayCreated}
+          />
+          <ModalAlert
+            className="mt-6"
+            alertType="error"
+            text="Erro ao criar redação"
+            condition={isEssayCreated !== undefined && !isEssayCreated}
+          />
+          <ModalAlert
+            className="mt-6"
+            alertType="success"
+            text="Redação atualizada com sucesso"
+            condition={isEssayUpdated !== undefined && isEssayUpdated}
+          />
+          <ModalAlert
+            className="mt-6"
+            alertType="error"
+            text="Erro ao atualizar redação"
+            condition={isEssayUpdated !== undefined && !isEssayUpdated}
+          />
+        </>
       )}
-      {isEssayUpdated ? (
-        <ModalAlert className="mt-6" alertType="success" text="Redação atualizada com sucesso" />
-      ) : (
-        <ModalAlert className="mt-6" alertType="error" text="Erro ao atualizar redação" />
-      )}
-      <h1 className="text-xl py-4">Minhas redações</h1>
+      <h1 className="text-xl font-bold py-4">Minhas redações</h1>
       <hr className="bg-black w-full" />
       <div className="flex flex-col w-full gap-4 py-2 px-2 items-center">
         {isLoading ? <p>Carregando...</p> : null}

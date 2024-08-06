@@ -7,6 +7,7 @@ import { Alert, Button, Form, Input } from 'antd';
 import { Navigate, useSearchParams } from 'react-router-dom';
 import { useLoginForm } from './useLoginForm';
 import { currentYear } from '@utils/formatDate';
+import { useEffect } from 'react';
 
 export const LoginPage = () => {
   const userToken = userAuth.get.token();
@@ -22,8 +23,13 @@ export const LoginPage = () => {
 
   const errorMessage = (error as unknown as any)?.response?.data?.error ?? error?.message;
 
+  // useEffect(() => {
+  //   //verificar com o wesley
+  //   document.title = 'Login - Pontuando';
+  // }, []);
+
   if (userToken) {
-    return <Navigate to={ROUTES.PRIVATE.PROFILE} state={{ from: location }} replace />;
+    return <Navigate to={ROUTES.PRIVATE.PANEL} state={{ from: location }} replace />;
   }
   return (
     <section className="w-screen h-screen flex flex-col gap-10 justify-center items-center max-md:h-[540px]">
@@ -48,9 +54,9 @@ export const LoginPage = () => {
           </div>
         </Form>
       </div>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center ">
         <p className="text-xs">Todos os direitos reservados</p>
-        <p className="text-xs">© {currentYear()} Redação sem trauma</p>
+        <p className="text-xs">© {currentYear()} Pontuando</p>
       </div>
     </section>
   );

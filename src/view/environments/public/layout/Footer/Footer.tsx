@@ -26,7 +26,7 @@ export const Footer = () => {
         <YoutubeLogo size={shapeSize} weight="fill" className="text-white" />
       </div>
       <h4 className="text-white py-4">
-        © {currentYear()} Redação sem trauma. Todos os direitos reservados.
+        © {currentYear()} Pontuando - Todos os direitos reservados.
       </h4>
     </footer>
   );

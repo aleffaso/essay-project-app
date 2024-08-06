@@ -11,7 +11,7 @@ export const Sidebar = () => {
           <Outlet />
           <div className="flex flex-col items-center justify-center py-4">
             <p className="text-xs">Todos os direitos reservados</p>
-            <p className="text-xs">© {currentYear()} Redação sem trauma</p>
+            <p className="text-xs">© {currentYear()} Pontuando</p>
           </div>
         </div>
       </div>

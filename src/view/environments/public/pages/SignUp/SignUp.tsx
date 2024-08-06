@@ -27,7 +27,7 @@ export const SignUpPage = () => {
   const errorMessage = (error as unknown as any)?.response?.data?.error ?? error?.message;
 
   if (userToken) {
-    return <Navigate to={ROUTES.PRIVATE.PROFILE} state={{ from: location }} replace />;
+    return <Navigate to={ROUTES.PRIVATE.PANEL} state={{ from: location }} replace />;
   }
   return (
     <section className="w-screen h-screen bg-dark-455 flex justify-center items-center">

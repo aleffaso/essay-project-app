@@ -13,7 +13,7 @@ export const SignUpSection = () => (
         </span>
         <div className="w-full flex flex-row items-center justify-center gap-5 max-md:gap-2">
           <button className="w-[310px] h-[60px] rounded-xl cursor-pointer bg-dark-455 border-dark-455 max-md:w-[155px] max-md:h-[35px]">
-            <Link to={ROUTES.PRIVATE.PROFILE}>
+            <Link to={ROUTES.PRIVATE.PANEL}>
               <span className="text-white text-[22px] font-bold max-md:text-[12px]">
                 Enviar minha redação
               </span>
