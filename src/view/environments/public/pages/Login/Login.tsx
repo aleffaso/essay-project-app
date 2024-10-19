@@ -7,7 +7,6 @@ import { Alert, Button, Form, Input } from 'antd';
 import { Navigate, useSearchParams } from 'react-router-dom';
 import { useLoginForm } from './useLoginForm';
 import { currentYear } from '@utils/formatDate';
-import { useEffect } from 'react';
 
 export const LoginPage = () => {
   const userToken = userAuth.get.token();
@@ -22,11 +21,6 @@ export const LoginPage = () => {
   const handleLogin = (data: LoginModel) => login(data);
 
   const errorMessage = (error as unknown as any)?.response?.data?.error ?? error?.message;
-
-  // useEffect(() => {
-  //   //verificar com o wesley
-  //   document.title = 'Login - Pontuando';
-  // }, []);
 
   if (userToken) {
     return <Navigate to={ROUTES.PRIVATE.PANEL} state={{ from: location }} replace />;
